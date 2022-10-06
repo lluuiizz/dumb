@@ -8,6 +8,38 @@ void get_file_name (char *file, char **args);
 bool check_file_format(char *file_name);
 size_t get_file_size(FILE* file);
 void get_string(char *str_to, FILE* content_from);
+void tokenizer(char *content);
+
+typedef enum {
+    IDENTIFIER,
+    INT_LITERAL,
+    PLUS,
+    MINUS,
+    SLAH,
+    LPAREN,
+    RPAREN,
+    ASTERISK,
+    SEMICOLON,
+    COMMA,
+    PERIOD,
+    EQUALS,
+    ASSIGNMENT,
+    GT,
+    LT,
+    LEQ,
+    GEQ,
+    NEG,
+    SPACE,
+    QUOTED_STRING,
+    IF,
+    WHILE,
+    LOOP,
+} token_type;
+
+typedef struct {
+    token_type type; 
+    char *value;
+} token;
 
 int main (int argc, char **argv) {
     if (argc < 2) {
