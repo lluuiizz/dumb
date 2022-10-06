@@ -21,6 +21,7 @@ int main (int argc, char **argv) {
 
     if (!check_file_format(file)) {
         printf("The format of the file is not '.dumb'\n");
+        return -1;
     }
 
     FILE* content = fopen(file, "r");
@@ -37,7 +38,7 @@ int main (int argc, char **argv) {
     get_string(content_string, content);
     fclose(content);
 
-    tokenizer(content_string);
+    printf("%s", content_string);
     return 0;
 }
 
@@ -48,13 +49,17 @@ void get_file_name (char *file, char **args) {
 }
 
 bool check_file_format(char *file_name) {
-    size_t i = 0;
-    for (i; file_name[i] != '.'; ++i);
+    size_t per = 0;
+    for (size_t i = 0; i < strlen(file_name); ++i) {
+        if (file_name[i] == '.') {
+            per = i;
+        }
+    }
 
-    char *buff = malloc(4);
+    char *buff = malloc(6);
     
-    for(size_t j = 0; i < strlen(file_name); ++i, ++j) {
-        buff[j] = file_name[i];
+    for(size_t j = 0; per < strlen(file_name); ++per, ++j) {
+        buff[j] = file_name[per];
     }
     
     if (strcmp(buff, ".dumb") == 0) {
