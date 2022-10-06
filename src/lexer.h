@@ -40,6 +40,6 @@ typedef struct {
     char *value;
 } token;
 
-void entryhoho(void);
+void tokenizer(char *content);
 #endif
  

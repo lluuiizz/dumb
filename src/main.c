@@ -37,6 +37,7 @@ int main (int argc, char **argv) {
     get_string(content_string, content);
     fclose(content);
 
+    tokenizer(content_string);
     return 0;
 }
 
