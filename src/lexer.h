@@ -26,6 +26,12 @@ typedef enum {
     IF,
     WHILE,
     LOOP,
+    DUP,
+    SWAP,
+    OVER,
+    DROP,
+    PRINT,
+    PUTS,
 } token_type;
 
 typedef struct {

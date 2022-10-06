@@ -9,7 +9,6 @@ void get_file_name (char *file, char **args);
 bool check_file_format(char *file_name);
 size_t get_file_size(FILE* file);
 void get_string(char *str_to, FILE* content_from);
-void tokenizer(char *content);
 
 int main (int argc, char **argv) {
     if (argc < 2) {
@@ -36,11 +35,6 @@ int main (int argc, char **argv) {
     char *content_string = malloc(sizeof(char) * file_size);
 
     get_string(content_string, content);
-
-    printf("%s", content_string);
-
-    entryhoho();
-
     fclose(content);
 
     return 0;
